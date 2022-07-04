@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="index-page-container">
+    <div class="row">
+        <div class="col">
+            <center>
+                <h1 class="my-index-title">Welcome to BlackJack!</h1>
+            </center>
+            <center>
+                <h3 class="my-index-desc">Start a New Game</h3>
+                </center>
+
+            <div style="text-align: center" class="col-xs-12 col-sm-12 h3 my-vertical-center">
+                <div class="my-cards-container my-vertical-center">
+
+                    @using (Html.BeginForm("GameStart", "Game", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <input type="hidden" name="start" id="start" value="true" />
+                            <input type="submit" value="Start" class="btn btn-warning btn-lg my-wide-button" />
+                        </div>
+                    }
+                    </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+

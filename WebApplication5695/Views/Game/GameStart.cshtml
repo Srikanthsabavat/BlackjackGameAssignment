@@ -1,0 +1,191 @@
+﻿@model WebApplication5695.Models.CardAdding
+@{
+    /**/
+
+    ViewBag.Title = "GameStart";
+}
+
+<div class="row my-game-rows">
+    <div style="text-align: center" class="col-xs-12 col-sm-3 h3 my-vertical-center">
+        @using (Html.BeginForm("Hit", "Game", FormMethod.Post))
+        {
+            <div>
+                <input type="hidden" name="Hit" id="hit" value="Hit" />
+                <input type="submit" value=" Hit " class="btn btn-success btn-lg my-wide-button" />
+
+            </div>
+        }
+    </div>
+
+
+    
+    <div style="text-align: center" class="col-xs-12 col-sm-5 h3 my-vertical-center">
+        <div class="my-cards-container my-vertical-center">
+            <table class="ml-5" border="6">
+                <style>
+                    th, td {
+                        padding: 20px;
+                        text-align: center;
+                        border-bottom: 2px solid;
+                    }
+
+                    th {
+                        font-size: larger;
+                        color: white;
+                    }
+                </style>
+
+
+                <tr>
+                    <th><b>PlayerCards</b></th>
+                    <th><b>DealerCards</b></th>
+                </tr>
+                <tr>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("Player1")</b>
+                            TempData.Keep("Player1");
+                        }
+                    </td>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("Dealer1")</b>
+                            TempData.Keep("Dealer1");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("Player2")</b>
+                            TempData.Keep("Player2");
+                        }
+                    </td>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("D_hit1")</b>
+                            TempData.Keep("D_hit1");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("P_Hit1")</b>
+                            TempData.Keep("P_Hit1");
+                        }
+                    </td>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("D_hit2")</b>
+                            TempData.Keep("D_hit2");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("P_Hit2")</b>
+                            TempData.Keep("P_Hit2");
+                        }
+                    </td>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("D_Hit3")</b>
+                            TempData.Keep("D_Hit3");
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("P_Hit3")</b>
+                            TempData.Keep("P_Hit3");
+                        }
+                    </td>
+                    <td>
+                        @{
+                            <b>@TempData.Peek("D_Hit4")</b>
+                            TempData.Keep("D_Hit4");
+                        }
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div style="text-align: center" class="col-xs-12 col-sm-3 h3 my-vertical-center">
+            @using (Html.BeginForm("Stand", "Game", FormMethod.Post))
+            {
+
+                <input type="hidden" name="Stand" id="Stand" value="Stand" />
+                <input type="submit" value="Stand" class="btn btn-success btn-lg my-wide-button" />
+
+
+
+            }
+        </div>
+    </div>
+
+</div>
+
+<div class="row my-game-rows">
+    <div style="text-align: center" class="col-xs-12 col-sm-3 h3 my-vertical-center">
+        <h3>
+            <label for="PlayerScore">Player Score:@WebApplication5695.Models.gs.PlayerHandvalue</label>
+        </h3>
+    </div>
+    <div style="text-align: center" class="col-xs-12 col-sm-5 h3 my-vertical-center">
+        <div class="my-cards-container my-vertical-center">
+            <h3>
+                <label for="Game Status">Game Result:@ViewData["GameStatus"]</label>
+            </h3>
+        </div>
+    </div>
+    <div style="text-align: center" class="col-xs-12 col-sm-3 h3 my-vertical-center">
+        <h3>
+            <label for="DealerScore">Dealer Score:@WebApplication5695.Models.gs.DealerHandvalue</label>
+        </h3>
+    </div>
+</div>
+   
+    <div class="row my-game-rows">
+        <div style="text-align: center" class="col-xs-12 col-sm-3 h3 my-vertical-center">
+            @using (Html.BeginForm("SessionReport", "Game", FormMethod.Post))
+            {
+                <div class="form-group">
+
+                    <input type="hidden" name="Report" id="Report" value="true" />
+                    <input type="submit" value="Report" class="btn btn-warning btn-lg my-wide-button" />
+                </div>
+            }
+        </div>
+
+        <div style="text-align: center" class="col-xs-12 col-sm-5 h3 my-vertical-center">
+            <div class="my-cards-container my-vertical-center">
+                @using (Html.BeginForm("Playagain", "Game", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <input type="hidden" name="Playagain" id="Playagain" value="true" />
+                        <input type="submit" value="Playagain" class="btn btn-warning btn-lg my-wide-button" />
+                    </div>
+                }
+            </div>
+        </div>
+        <div style="text-align: center" class="col-xs-12 col-sm-3 h3 my-vertical-center">
+
+            @using (Html.BeginForm("GameSave", "Game", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <input type="hidden" name="Save" id="Save" value="true" />
+                    <input type="submit" value="Save" class="btn btn-warning btn-lg my-wide-button" />
+                </div>
+            }
+        </div>
+        </div>
+
+
+
+
+
+

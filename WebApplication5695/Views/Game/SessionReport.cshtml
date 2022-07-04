@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebApplication5695.Models.Session>
+
+@{
+    ViewBag.Title = "SessionReport";
+}
+<center>
+    <h1><b><u>Session Report</u></b></h1>
+    <br /><br />
+</center>
+<table class="table" cellpadding="4" cellspacing="4" border="2">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DealerTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameResult)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DealerTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameResult)
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+
+    <div style="text-align: center; margin: -12px" class="col-xs-12 col-sm-12 h3 my-vertical-center">
+        <div class="my-cards-container my-vertical-center">
+
+            @using (Html.BeginForm("stand", "Game", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <input type="hidden" name="Save" id="Playagain" value="true" />
+                    <input type="submit" value="Go Back" class="btn btn-warning btn-lg my-wide-button" />
+                </div>
+            }
+
+        </div>
+    </div>
+
